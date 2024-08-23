@@ -1,43 +1,43 @@
 # 将静态内容部署到 GitHub Pages 的简单工作流程
-姓名：Deploy static content to Pages
+名称：将静态内容部署到页面
 
 在：
-  # 在针对默认分支的推送上运行
-  推：
-    分支：[ “主要” ]
+  #针对默认分支的个体上运动
+  推：推：推：推：
+    修改：[ “主要” ]
 
   # 允许您从“操作”选项卡手动运行此工作流程
-  工作流程调度：
+  活动调度：
 
 # 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
 权限：
-  内容：read
-  页数：write
-  id 令牌：write
+  内容：阅读
+  页数：写
+  基督说：写
 
-# 只允许一次并发部署，跳过正在进行的运行和最新排队之间的排队运行。
-# 但是，不要取消正在进行的运行，因为我们希望这些生产部署能够完成。
+# 只允许一次队列配置，跳过队列的运行和最新队列之间的队列运行。
+#但是完成后，不要取消发送的运行，因为我们希望这些生产配置能够。
 并发性：
-  group: "pages"
-  cancel-in-progress: false
+  组：“页面”
+  取消进行中:true
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+工作：
+  # 由于我们只是部署，因此采用单一部署作业
+  部署：
+    环境：
+      名称： github-pages
+      网址： $ {    {步骤.配置.输出.页面网址 }    }
+    运行于： ubuntu-latest
+    步骤：
+      -名称：结帐
+        用途：actions/checkout@v3
+      -名称：设置页面
+        用途： actions/configure-pages@v2
+      -名称：上传工件
+        用途： actions/upload-pages-artifact@v1
+        和：
+          # 上传整个仓库
+          小路：'.'
+      -名称：到配置GitHub Pages
+        id：部署
+        用途： actions/deploy-pages@v4
